@@ -1,7 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import {useNavigation} from "@react-navigation/native"
 export default function Login() {
+
+  const navigation = useNavigation();
+
+  const handleRegister = () => {
+    navigation.navigate('Register')
+  }
   return (
     <View style={style.bg}>
       <Text style={style.title}>
@@ -49,7 +56,7 @@ export default function Login() {
         </TouchableOpacity>
 
         <Text style={style.reg}>
-          Have no account? <TouchableOpacity><Text style={style.link}>Register</Text></TouchableOpacity>
+          Have no account? <TouchableOpacity onPress={handleRegister}><Text style={style.link}>Register</Text></TouchableOpacity>
         </Text>
       </View>
     </View>
